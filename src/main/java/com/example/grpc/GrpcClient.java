@@ -5,6 +5,11 @@ import io.grpc.ManagedChannelBuilder;
 
 public class GrpcClient {
     public static void main(String[] args) {
+        if (args.length < 3) {
+            System.err.println("Usage: GrpcClient <ipaddress> <port> <numRequests>");
+            return;
+        }
+
         String ipaddress = args[0];
         int port = Integer.parseInt(args[1]);
         int numRequests = Integer.parseInt(args[2]);

@@ -7,12 +7,11 @@ import java.io.IOException;
 
 public class GrpcServer {
     public static void main(String[] args) throws IOException, InterruptedException {
-//        if (args.length < 1) {
-//            System.err.println("Usage: GrpcServer <port>");
-//            System.exit(1);
-//        }
-//        int port = Integer.parseInt(args[0]);
-        int port = 8080;
+        if (args.length < 1) {
+            System.err.println("Usage: GrpcServer <port>");
+            System.exit(1);
+        }
+        int port = Integer.parseInt(args[0]);
         Server server = ServerBuilder.forPort(port)
                 .addService(new GreeterServiceImpl(port))
                 .build()
